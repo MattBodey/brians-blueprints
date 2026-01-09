@@ -23,11 +23,37 @@ You will need [fatul](https://github.com/nyurik/fatul) to encode/decode blueprin
 
 Replace `book-dir` with the blueprint directory you want to use.
 
-For example, if you want encoded Brian's trains Blueprint book:
+### Preprocess Blueprints (Merge Headers)
+
+Some blueprint directories contain `headers/` subdirectories with train system-specific configurations (LTN, Cybersyn, Vanilla). The `prebuild.py` script automatically merges these headers with body blueprints to generate system-specific variants.
 
 ```sh
-tools/fatul.py encode -v brians-trains/book brians-train.txt
+tools/prebuild.py -v --clean brians-trains/book ./dist
 ```
+
+This will:
+- Process the source directory structure
+- Find directories with `headers/` subdirectories
+- Merge each header with all body blueprints in that directory
+- Create organized output in `./dist/brians-trains/book/` with header-specific subdirectories
+- Copy metadata and preserve directory structure
+
+For example, if you want to build Brian's trains Blueprint book with all merged variants:
+
+```sh
+tools/prebuild.py -v --clean brians-trains/book ./dist
+tools/fatul.py encode -v ./dist/brians-trains/book brians-train.txt
+```
+
+### Merge Blueprints Manually
+
+To manually merge a header with a body blueprint:
+
+```sh
+tools/merge-blueprints.py body.json header.json -o merged.json -v
+```
+
+The merge uses train-stop entities as anchor points for precise alignment.
 
 ### Decode a Blueprint Book
 
