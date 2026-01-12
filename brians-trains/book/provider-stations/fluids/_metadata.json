@@ -1,8 +1,8 @@
 {
-  "index": 6,
+  "index": 0,
   "blueprint_book": {
     "item": "blueprint-book",
-    "label": "Provider Stations",
+    "label": "Fluid Provider Stations",
     "description": "DO NOT MERGE CHESTS UNLESS IT IS A \"MERGED\" STATION!\n\nMerging chests requires mods:\n- Merging Chests\n- Merging Chests Unlimited\n\nWith the following configuration:\n\n- Iron chest merge mode: All (wooden & steel can be \"none\")\n- Maximum chest width: 64 (or higher)\n- Maximum chest height: 64 (or higher)\n- Whitelist of merged chests: Nx1 1xN   (less memory over NxN)",
     "active_index": 0,
     "version": 562949957025792,
@@ -10,7 +10,7 @@
       {
         "index": 1,
         "signal": {
-          "name": "transport-belt"
+          "name": "cargo-wagon"
         }
       }
     ]

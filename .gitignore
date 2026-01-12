@@ -6,3 +6,5 @@ requirements.lock
 src
 /todo.txt
 /test*
+.venv
+dist
